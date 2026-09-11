@@ -1,0 +1,58 @@
+# Curriculum Progress
+
+Phase 1 records design evidence only. `Not run` is intentional: implementation
+has not begun. Every future command/date cell must contain the exact successful
+command, execution date, and commit; failures remain visible until resolved.
+
+| ID | Concept / status | Java | Frameworks | Infrastructure | Planned test evidence | Verification command / date | Limits / emulator boundary | Senior review / delegation |
+|---:|---|---|---|---|---|---|---|---|
+| 01 | Lost updates / planned | 21 | Plain Java | none | coordinated + property | Not run | process-local | Pending / Sol design |
+| 02 | Visibility / planned | 21 | Plain Java, jcstress | none | structural + stress | Not run | JMM outcome not forced | Pending / Sol design |
+| 03 | Compound atomicity / planned | 21 | Plain Java, jqwik | none | coordinated + model | Not run | process-local | Pending / Sol design |
+| 04 | Safe publication / planned | 21 | Plain Java | none | mutation + concurrency | Not run | process-local | Pending / Sol design |
+| 05 | Deadlock / planned | 21 | Plain Java, JFR | none | forced cycle + MXBean | Not run | JVM locks only | Pending / Sol design |
+| 06 | Lock contention / planned | 21 | Plain Java, JMH | none | invariants + benchmark | Not run | environment-sensitive | Pending / Sol design |
+| 07 | Bounded executor / planned | 21 | Plain Java, Micrometer | none | exact saturation | Not run | process-local | Pending / Sol design |
+| 08 | Virtual threads / planned | 21; 25 ext | Plain Java, JFR | none | max concurrency + diagnostics | Not run | downstream limit remains | Pending / Sol design |
+| 09 | Async lifetime / planned | 21; 25 ext | Plain Java | none | controlled future matrix | Not run | preview isolated | Pending / Sol design |
+| 10 | Async context / planned | 21; 25 ext | Plain Java, OTel | none | leak + cleanup | Not run | lexical inheritance limits | Pending / Sol design |
+| 11 | Lookup complexity / planned | 21 | Plain Java, jqwik | none | operation count + differential | Not run | average hash behavior | Pending / Sol design |
+| 12 | JMH correctness / planned | 21 | JMH | none | smoke + JSON + semantics | Not run | no winner gate | Pending / Sol design |
+| 13 | Allocation / planned | 21; 25 ext | JMH, JFR | none | GC profiler + retention | Not run | allocation ≠ latency | Pending / Sol design |
+| 14 | Boxing/layout / planned | 21 | JMH | none | boundaries + bytes/op | Not run | workload-specific | Pending / Sol design |
+| 15 | Collection choice / planned | 21 | jqwik, JMH | none | state model + workload | Not run | workload-specific | Pending / Sol design |
+| 16 | JPA N+1 / planned | 21 | Spring Data JPA | PostgreSQL | result + query budget | Not run | local DB ≠ RDS | Pending / Sol design |
+| 17 | Sargable SQL / planned | 21 | Spring JDBC | PostgreSQL | boundary + query plan | Not run | planner/data dependent | Pending / Sol design |
+| 18 | Keyset paging / planned | 21 | Spring JDBC | PostgreSQL | traversal + plan | Not run | stated snapshot semantics | Pending / Sol design |
+| 19 | DynamoDB batching / planned | 21 | AWS SDK v2 | DynamoDB Local | request count + partials | Not run | no managed throttling/IAM | Pending / Sol design |
+| 20 | Pool admission / planned | 21 | Spring JDBC, Hikari | PostgreSQL, Toxiproxy | forced saturation/loss | Not run | not RDS failover | Pending / Sol design |
+| 21 | Deadline budget / planned | 21 | Spring MVC, HTTP clients | WireMock | manual-time budget | Not run | local HTTP only | Pending / Sol design |
+| 22 | Retry/jitter / planned | 21 | Spring Boot, Resilience4j | WireMock | fake time/random | Not run | policy simulation | Pending / Sol design |
+| 23 | HTTP idempotency / planned | 21 | Spring MVC/JDBC | PostgreSQL | concurrency + restart | Not run | remote effect excluded | Pending / Sol design |
+| 24 | Circuit breaker / planned | 21 | Spring Boot, Resilience4j | none | transition matrix | Not run | per-instance core | Pending / Sol design |
+| 25 | Bulkheads / planned | 21 | Spring Boot, Resilience4j | none | deterministic saturation | Not run | configured capacity only | Pending / Sol design |
+| 26 | Fair rate limit / planned | 21 | Plain Java + Spring | optional Redis | virtual-time properties | Not run | local core; Redis limits | Pending / Sol design |
+| 27 | Load shedding / planned | 21 | Spring MVC, Micrometer | none | queue/admission matrix | Not run | process-local | Pending / Sol design |
+| 28 | Stale fallback / planned | 21 | Spring Boot, Caffeine | optional Redis | fake-clock matrix | Not run | bounded stale only | Pending / Sol design |
+| 29 | Partial fan-out / planned | 21 | Spring MVC, HTTP clients | WireMock | controlled outcomes | Not run | no universal client winner | Pending / Sol design |
+| 30 | Graceful shutdown / planned | 21 | Spring Boot, Actuator | none | lifecycle gates | Not run | local orchestrator model | Pending / Sol design |
+| 31 | Transactional outbox / planned | 21 | Spring Boot/JDBC | PostgreSQL | seam transaction failures | Not run | atomic intent, not publish | Pending / Sol design |
+| 32 | Outbox relay / planned | 21 | Spring Boot/JDBC, AWS SDK | PostgreSQL + SQS emulator | send-then-throw + restart | Not run | at-least-once | Pending / Sol design |
+| 33 | Inbox dedupe / planned | 21 | Spring Boot/JDBC, AWS SDK | PostgreSQL + SQS emulator | duplicate/crash matrix | Not run | retention/replay policy | Pending / Sol design |
+| 34 | Optimistic writes / planned | 21 | Spring Boot/JDBC | PostgreSQL; DynamoDB ext | coordinated writers | Not run | emulator conditional path | Pending / Sol design |
+| 35 | Pessimistic locks / planned | 21 | Spring Boot/JDBC | PostgreSQL | real lock/deadlock | Not run | not multi-region | Pending / Sol design |
+| 36 | Durable saga / planned | 21 | Spring Boot | PostgreSQL + queues | state-machine recovery | Not run | no distributed ACID | Pending / Sol design |
+| 37 | Event ordering / planned | 21 | Spring Kafka | Kafka KRaft | controlled reorder + broker | Not run | single-node; per partition | Pending / Sol design |
+| 38 | SQS lifecycle / planned | 21 | Spring Boot, AWS SDK | SQS emulator | visibility/redrive matrix | Not run | AWS scheduler not proven | Pending / Sol design |
+| 39 | Event contracts / planned | 21 | Spring Boot, Jackson | broker/emulator | golden consumer/routing | Not run | provider routing differs | Pending / Sol design |
+| 40 | S3/cache consistency / planned | 21 | Spring Boot, AWS SDK | S3/SQS emulator | stale resurrection/events | Not run | AWS notifications not proven | Pending / Sol design |
+| 41 | Stateless scale / planned | 21 | Spring MVC | PostgreSQL/Redis | two-instance routing | Not run | local replicas | Pending / Terra design |
+| 42 | Hot partitions / planned | 21 | AWS SDK, jqwik | DynamoDB Local | distribution + conflict | Not run | no fleet throttling | Pending / Terra design |
+| 43 | Cache stampede / planned | 21 | Caffeine | optional Redis | barrier-controlled load | Not run | core process-local | Pending / Terra design |
+| 44 | CQRS projection / planned | 21 | Spring Boot | PostgreSQL + broker | replay + restart | Not run | eventual contract explicit | Pending / Terra design |
+| 45 | Leases/fencing / planned | 21 | Spring Boot | PostgreSQL/Redis | stale-write rejection | Not run | partition model bounded | Pending / Terra design |
+| 46 | Structured logs / planned | 21 | Spring Boot, Micrometer | none | sink + redaction | Not run | local log pipeline | Pending / Terra design |
+| 47 | SLI/SLO metrics / planned | 21 | Micrometer | none | meter + rule fixtures | Not run | no production traffic | Pending / Terra design |
+| 48 | Async tracing / planned | 21 | Spring, OpenTelemetry | optional collector | in-memory span graph | Not run | backend behavior excluded | Pending / Terra design |
+| 49 | Tenant isolation / planned | 21 | Spring Security | PostgreSQL + S3 adapter | adversarial matrix | Not run | IAM fidelity excluded | Pending / Terra design |
+| 50 | Cloud capstone / planned | 21 | Two Spring services | PostgreSQL + SQS/S3 emulators | end-to-end failure matrix | Not run | no real AWS/managed failover | Pending / Terra design |
