@@ -1,7 +1,7 @@
 # Deadlock-Free Account Transfer
 
-**Category:** Concurrency, liveness, and diagnostics  
-**Difficulty:** Advanced  
+**Category:** Concurrency, liveness, and diagnostics
+**Difficulty:** Advanced
 **Estimated time:** 105 minutes
 
 ## Scenario, symptoms, and business impact
