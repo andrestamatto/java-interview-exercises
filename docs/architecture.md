@@ -18,7 +18,7 @@
   `benchmarkExerciseNN`, `integrationTest`, `dependencyUpdates`, and explicit
   starter acceptance tasks.
 
-Spring Boot 4.1.x is the proposed default because the current release supports
+Spring Boot 4.1.x is the approved default because the current release supports
 Java 21 and 25. Exact Spring Cloud and plugin versions are pinned only after
 checking their official compatibility matrices during Phase 2.
 
@@ -66,8 +66,9 @@ and upgrades them intentionally rather than resolving `latest`.
 | Observability | 46–50 | In-memory OTel exporter; optional collector | Vendor retention, query, and billing behavior |
 
 LocalStack changed its current image policy to require an authentication token.
-Until the owner decides otherwise, it is optional and must never make the suite
-depend on an undisclosed credential.
+It is therefore an optional profile and must never make the suite depend on an
+undisclosed credential. ElasticMQ, MinIO, and DynamoDB Local are the approved
+credential-free defaults when they accurately cover the exercise contract.
 
 AWS feature coverage is explicit: exercise 20 models connection loss and RDS
 retry boundaries; 38 covers SQS long polling; 40 covers S3 multipart completion
