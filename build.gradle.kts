@@ -87,6 +87,16 @@ tasks.register("verifyExercise02") {
     )
 }
 
+tasks.register("verifyExercise03") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 03."
+    dependsOn(
+        ":exercises:03-atomic-quota-compound-operation:starter:check",
+        ":exercises:03-atomic-quota-compound-operation:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }

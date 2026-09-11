@@ -20,4 +20,6 @@ include(
     ":exercises:01-lost-update-stock-reservation:solution",
     ":exercises:02-volatile-shutdown-visibility:starter",
     ":exercises:02-volatile-shutdown-visibility:solution",
+    ":exercises:03-atomic-quota-compound-operation:starter",
+    ":exercises:03-atomic-quota-compound-operation:solution",
 )

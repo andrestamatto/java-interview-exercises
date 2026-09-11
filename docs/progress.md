@@ -8,7 +8,7 @@ remain explicit rather than being hidden from the normal build.
 |---:|---|---|---|---|---|---|---|---|
 | 01 | Lost updates / verified, review approved | 21 (Temurin 21.0.12.1+1) | Plain Java, JUnit, jqwik | none | coordinated + property | `gradlew.bat --no-daemon spotlessApply clean formatCheck compileStarters verifySolutions verifyStarterIsolation generateLicenseReport` / 2026-09-11; `starterAcceptanceTest --rerun-tasks` failed as designed | process-local; no throughput claim | Owner checkpoint approved / Sol design review |
 | 02 | Volatile shutdown visibility / verified | 21 (Temurin 21.0.12.1+1) | Plain Java, jcstress | none | structural + jcstress | `gradlew.bat --no-daemon :exercises:02-volatile-shutdown-visibility:solution:jcstress` / 2026-09-11; starter acceptance fails as designed | process-local; jcstress race outcomes are not stale-read proof | Pending batch review / Sol design |
-| 03 | Compound atomicity / planned | 21 | Plain Java, jqwik | none | coordinated + model | Not run | process-local | Pending / Sol design |
+| 03 | Atomic quota compound operation / verified | 21 (Temurin 21.0.12.1+1) | Plain Java, jqwik | none | coordinated + model | `gradlew.bat --no-daemon verifyExercise03` / 2026-09-11; starter acceptance fails as designed | process-local; no distributed rate-limit claim | Pending batch review / Sol design |
 | 04 | Safe publication / planned | 21 | Plain Java | none | mutation + concurrency | Not run | process-local | Pending / Sol design |
 | 05 | Deadlock / planned | 21 | Plain Java, JFR | none | forced cycle + MXBean | Not run | JVM locks only | Pending / Sol design |
 | 06 | Lock contention / planned | 21 | Plain Java, JMH | none | invariants + benchmark | Not run | environment-sensitive | Pending / Sol design |
