@@ -34,4 +34,6 @@ include(
     ":exercises:08-virtual-threads-downstream-bulkhead:solution",
     ":exercises:09-completable-future-task-lifetime:starter",
     ":exercises:09-completable-future-task-lifetime:solution",
+    ":exercises:10-async-request-context:starter",
+    ":exercises:10-async-request-context:solution",
 )
