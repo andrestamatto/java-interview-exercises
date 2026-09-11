@@ -1,0 +1,48 @@
+# This is a Gradle generated file for dependency locking.
+# Manual edits can break the build and are not advised.
+# This file is expected to be part of source control.
+# To regenerate this file, run: ./gradlew :dependencies --write-locks
+com.diffplug.durian:durian-collect:1.2.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.durian:durian-core:1.2.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.durian:durian-io:1.2.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.durian:durian-swt.os:4.3.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:8.10.2=compileClasspath,precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.spotless:spotless-lib-extra:4.10.2=compileClasspath,precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.spotless:spotless-lib:4.10.2=compileClasspath,precompiledScriptPluginAccessorsGenerationClasspath
+com.diffplug.spotless:spotless-plugin-gradle:8.10.2=compileClasspath,precompiledScriptPluginAccessorsGenerationClasspath
+com.googlecode.concurrent-trees:concurrent-trees:2.6.1=precompiledScriptPluginAccessorsGenerationClasspath
+com.googlecode.javaewah:JavaEWAH:1.2.3=precompiledScriptPluginAccessorsGenerationClasspath
+com.squareup.okhttp3:okhttp:4.12.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.squareup.okio:okio-jvm:3.6.0=precompiledScriptPluginAccessorsGenerationClasspath
+com.squareup.okio:okio:3.6.0=precompiledScriptPluginAccessorsGenerationClasspath
+commons-codec:commons-codec:1.22.0=precompiledScriptPluginAccessorsGenerationClasspath
+dev.equo.ide:solstice:1.8.2=precompiledScriptPluginAccessorsGenerationClasspath
+org.eclipse.jgit:org.eclipse.jgit:7.7.1.202607240634-r=precompiledScriptPluginAccessorsGenerationClasspath
+org.eclipse.platform:org.eclipse.osgi:3.24.200=precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-assignment-compiler-plugin-embeddable:2.4.0=kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-build-tools-api:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-build-tools-compat:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-build-tools-cri-impl:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-build-tools-impl:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-compiler-embeddable:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-compiler-runner:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-daemon-client:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-daemon-embeddable:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-reflect:1.6.10=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlin:kotlin-reflect:2.4.0=compileClasspath,precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-sam-with-receiver-compiler-plugin-embeddable:2.4.0=kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-script-runtime:2.4.0=compilePluginsBlocksPluginClasspathElements,kotlinBuildToolsApiClasspath,kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-scripting-common:2.4.0=compilePluginsBlocksPluginClasspathElements,kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:2.4.0=compilePluginsBlocksPluginClasspathElements,kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-scripting-compiler-impl-embeddable:2.4.0=compilePluginsBlocksPluginClasspathElements,kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-scripting-jvm:2.4.0=compilePluginsBlocksPluginClasspathElements,kotlinCompilerPluginClasspathMain
+org.jetbrains.kotlin:kotlin-stdlib-common:2.4.0=precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10=precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10=precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-stdlib:2.4.0=compileClasspath,compilePluginsBlocksPluginClasspathElements,kotlinBuildToolsApiClasspath,kotlinCompilerPluginClasspathMain,precompiledScriptPluginAccessorsGenerationClasspath
+org.jetbrains.kotlin:kotlin-tooling-core:2.4.0=kotlinBuildToolsApiClasspath
+org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.8.0=kotlinBuildToolsApiClasspath
+org.jetbrains:annotations:13.0=compileClasspath,compilePluginsBlocksPluginClasspathElements,kotlinBuildToolsApiClasspath,kotlinCompilerPluginClasspathMain,precompiledScriptPluginAccessorsGenerationClasspath
+org.slf4j:slf4j-api:2.0.18=precompiledScriptPluginAccessorsGenerationClasspath
+org.tukaani:xz:1.9=precompiledScriptPluginAccessorsGenerationClasspath
+empty=kotlinScriptDefExtensions
