@@ -1,7 +1,7 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
-# To regenerate this file, run: ./gradlew :exercises:01-lost-update-stock-reservation:starter:dependencies --write-locks
+# To regenerate this file, run: ./gradlew :exercises:02-volatile-shutdown-visibility:solution:dependencies --write-locks
 com.google.code.findbugs:jsr305:3.0.2=checkstyle
 com.google.errorprone:error_prone_annotations:2.36.0=checkstyle
 com.google.guava:failureaccess:1.0.3=checkstyle
@@ -14,11 +14,9 @@ commons-codec:commons-codec:1.11=checkstyle
 commons-collections:commons-collections:3.2.2=checkstyle
 info.picocli:picocli:4.7.7=checkstyle
 net.bytebuddy:byte-buddy:1.18.3=testCompileClasspath,testRuntimeClasspath
-net.jqwik:jqwik-api:1.9.3=testCompileClasspath,testRuntimeClasspath
-net.jqwik:jqwik-engine:1.9.3=testRuntimeClasspath
-net.jqwik:jqwik-time:1.9.3=testCompileClasspath,testRuntimeClasspath
-net.jqwik:jqwik-web:1.9.3=testCompileClasspath,testRuntimeClasspath
-net.jqwik:jqwik:1.9.3=testCompileClasspath,testRuntimeClasspath
+net.java.dev.jna:jna-platform:5.8.0=jcstressAnnotationProcessor,jcstressCompileClasspath,jcstressRuntimeClasspath
+net.java.dev.jna:jna:5.8.0=jcstressAnnotationProcessor,jcstressCompileClasspath,jcstressRuntimeClasspath
+net.sf.jopt-simple:jopt-simple:4.6=jcstressAnnotationProcessor,jcstressCompileClasspath,jcstressRuntimeClasspath
 net.sf.saxon:Saxon-HE:12.8=checkstyle
 org.antlr:antlr4-runtime:4.13.2=checkstyle
 org.apache.commons:commons-lang3:3.8.1=checkstyle
@@ -30,7 +28,7 @@ org.apache.maven.doxia:doxia-logging-api:1.12.0=checkstyle
 org.apache.maven.doxia:doxia-module-xdoc:1.12.0=checkstyle
 org.apache.maven.doxia:doxia-sink-api:1.12.0=checkstyle
 org.apache.xbean:xbean-reflect:3.7=checkstyle
-org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath,testRuntimeClasspath
+org.apiguardian:apiguardian-api:1.1.2=testCompileClasspath
 org.assertj:assertj-core:3.27.7=testCompileClasspath,testRuntimeClasspath
 org.checkerframework:checker-qual:3.49.5=checkstyle
 org.codehaus.plexus:plexus-classworlds:2.6.0=checkstyle
@@ -47,7 +45,8 @@ org.junit.platform:junit-platform-commons:1.14.1=testCompileClasspath,testRuntim
 org.junit.platform:junit-platform-engine:1.14.1=testRuntimeClasspath
 org.junit.platform:junit-platform-launcher:1.14.1=testRuntimeClasspath
 org.junit:junit-bom:5.14.1=testCompileClasspath,testRuntimeClasspath
+org.openjdk.jcstress:jcstress-core:0.16=jcstressAnnotationProcessor,jcstressCompileClasspath,jcstressRuntimeClasspath
 org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
 org.reflections:reflections:0.10.2=checkstyle
 org.xmlresolver:xmlresolver:5.3.3=checkstyle
-empty=annotationProcessor,compileClasspath,runtimeClasspath,testAnnotationProcessor
+empty=annotationProcessor,compileClasspath,testAnnotationProcessor

@@ -2,12 +2,14 @@
 junit = "5.14.1"
 jqwik = "1.9.3"
 assertj = "3.27.7"
+jcstress = "0.16"
 
 [libraries]
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 jqwik = { module = "net.jqwik:jqwik", version.ref = "jqwik" }
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+jcstress = { module = "org.openjdk.jcstress:jcstress-core", version.ref = "jcstress" }
 
 [plugins]
 dependencyLicense = { id = "com.github.jk1.dependency-license-report", version = "3.1.4" }

@@ -5,3 +5,5 @@ out/
 hs_err_pid*.log
 replay_pid*.log
 .jqwik-database
+jcstress-results-*.bin.gz
+results/
