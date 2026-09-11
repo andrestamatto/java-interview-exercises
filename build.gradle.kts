@@ -127,6 +127,16 @@ tasks.register("verifyExercise06") {
     )
 }
 
+tasks.register("verifyExercise07") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 07."
+    dependsOn(
+        ":exercises:07-bounded-import-executor:starter:check",
+        ":exercises:07-bounded-import-executor:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }
