@@ -7,8 +7,17 @@ system design practice.
 The authoritative implementation brief is available at
 [`docs/50-exercise-curriculum-prompt.md`](docs/50-exercise-curriculum-prompt.md).
 
-Phase 1 curriculum design is complete and awaiting the owner's decisions listed
-in `docs/phase-1-plan.md`. No curriculum implementation has been generated yet.
+Phase 1 curriculum design and the Phase 2 representative implementation are
+complete. The next batches build the remaining exercises from this reviewed
+foundation.
+
+The baseline is Java 21 on Eclipse Temurin. Java 25 extensions will remain
+isolated, and Spring Boot 4.1.x is the default for framework-oriented exercises.
+
+```shell
+./gradlew formatCheck compileStarters verifySolutions verifyStarterIsolation
+./gradlew verifyExercise01
+```
 
 Phase 1 design artifacts:
 
@@ -18,3 +27,6 @@ Phase 1 design artifacts:
 - [`docs/exercise-template.md`](docs/exercise-template.md)
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/progress.md`](docs/progress.md)
+
+The project is licensed under the Apache License 2.0. Copyright 2026 André
+Stamatto.

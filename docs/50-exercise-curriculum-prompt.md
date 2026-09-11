@@ -53,7 +53,7 @@ threads belong in the core; preview Java 25 APIs belong in optional extensions.
 
 ## Technology baseline
 
-Use Java 21, Gradle Kotlin DSL, a checked-in Gradle Wrapper, centralized pinned
+Use Eclipse Temurin Java 21, Gradle 9.x Kotlin DSL, a checked-in Gradle Wrapper, centralized pinned
 versions, JUnit 5, AssertJ, Awaitility, jqwik where useful, JMH exclusively for
 microbenchmarks, and Testcontainers for real infrastructure integration.
 
@@ -99,7 +99,9 @@ Cover:
 - IAM-style least privilege and safe credential handling conceptually.
 - A capstone combining HTTP, RDS-like persistence, SQS, and S3.
 
-Use Testcontainers LocalStack when accurate. Emulator-backed READMEs must state
+Use credential-free AWS-compatible local services when accurate: ElasticMQ for
+SQS, MinIO for S3, and DynamoDB Local for DynamoDB. LocalStack is an optional
+profile only when a learner supplies its required token. Emulator-backed READMEs must state
 what the emulator proves, what it cannot prove, what needs real-cloud validation,
 and concerns such as IAM, quotas, regions, managed failover, networking, latency,
 and cost. GCP/Azure may appear in comparisons; do not triple implementations.
@@ -283,7 +285,7 @@ modes.
 
 ## Mandatory suite coverage
 
-Include a plain-Java track, JMH, relational Testcontainers, LocalStack,
+Include a plain-Java track, JMH, relational Testcontainers, AWS-compatible local emulators,
 messaging, Redis or another cache, deterministic fault injection, logs/metrics/
 traces, a multi-service capstone, an isolated Java 25 extension, and CI that
 verifies Java 21 and Java 25 separately. Tag Docker tests separately. Full

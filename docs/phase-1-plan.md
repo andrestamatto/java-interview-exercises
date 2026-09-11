@@ -35,14 +35,14 @@ committed. Their local deletion is unnecessary for repository cleanliness.
 - Phase 3 continues autonomously after the representative exercise review.
 - Git history uses small Conventional Commits and reviewed PRs.
 
-## Decisions requiring owner approval before Phase 2
+## Decisions approved for Phase 2
 
 1. **Local AWS emulation:** current LocalStack images require a
    `LOCALSTACK_AUTH_TOKEN` as of March 23, 2026. Recommended default: use
    ElasticMQ for SQS, MinIO for S3, and DynamoDB Local for DynamoDB, with a
-   separately enabled LocalStack profile for learners who provide a token. This
-   requires changing the prompt's mandatory LocalStack wording to mandatory
-   AWS-compatible local integration.
+   separately enabled LocalStack profile for learners who provide a token. The
+   suite therefore requires accurate AWS-compatible local integration, not a
+   credentialed LocalStack dependency.
 2. **Spring generation:** use Spring Boot 4.1.x/Spring Framework 7 for new code,
    while documenting Boot 3/OpenFeign migration concerns. Verify Spring Cloud's
    compatibility matrix before pinning its release train.
@@ -55,10 +55,9 @@ committed. Their local deletion is unnecessary for repository cleanliness.
 5. **Copyright notice:** confirm `Copyright 2026 André Stamatto` for Apache-2.0.
 6. **CI Docker policy:** recommended PR-required Docker lane for one representative
    integration per affected exercise, with heavier recovery suites nightly/manual.
-7. **Tool availability:** this machine currently has no `java`, `gradle`, or
-   `docker` command on `PATH`. Phase 2 needs JDK 21 and Docker; Gradle itself will
-   be supplied by the Wrapper. Confirm whether Codex may install/configure the
-   missing local prerequisites if IntelliJ-managed JDKs are insufficient.
+7. **Tool availability:** Eclipse Temurin 21.0.12.1+1 and 25.0.4.1+1 were
+   installed locally. Gradle is supplied by the checked-in Wrapper. Docker is
+   deferred until the first applicable infrastructure exercise.
 
 ## Design risks and mitigations
 

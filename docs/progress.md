@@ -1,12 +1,12 @@
 # Curriculum Progress
 
-Phase 1 records design evidence only. `Not run` is intentional: implementation
-has not begun. Every future command/date cell must contain the exact successful
-command, execution date, and commit; failures remain visible until resolved.
+Phase 2 implements the build foundation and representative exercise 01. Every
+command/date cell records reproducible evidence; intentional starter failures
+remain explicit rather than being hidden from the normal build.
 
 | ID | Concept / status | Java | Frameworks | Infrastructure | Planned test evidence | Verification command / date | Limits / emulator boundary | Senior review / delegation |
 |---:|---|---|---|---|---|---|---|---|
-| 01 | Lost updates / planned | 21 | Plain Java | none | coordinated + property | Not run | process-local | Pending / Sol design |
+| 01 | Lost updates / verified, review approved | 21 (Temurin 21.0.12.1+1) | Plain Java, JUnit, jqwik | none | coordinated + property | `gradlew.bat --no-daemon spotlessApply clean formatCheck compileStarters verifySolutions verifyStarterIsolation generateLicenseReport` / 2026-09-11; `starterAcceptanceTest --rerun-tasks` failed as designed | process-local; no throughput claim | Owner checkpoint approved / Sol design review |
 | 02 | Visibility / planned | 21 | Plain Java, jcstress | none | structural + stress | Not run | JMM outcome not forced | Pending / Sol design |
 | 03 | Compound atomicity / planned | 21 | Plain Java, jqwik | none | coordinated + model | Not run | process-local | Pending / Sol design |
 | 04 | Safe publication / planned | 21 | Plain Java | none | mutation + concurrency | Not run | process-local | Pending / Sol design |
