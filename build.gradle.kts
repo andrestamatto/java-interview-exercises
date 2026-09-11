@@ -137,6 +137,36 @@ tasks.register("verifyExercise07") {
     )
 }
 
+tasks.register("verifyExercise08") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 08."
+    dependsOn(
+        ":exercises:08-virtual-threads-downstream-bulkhead:starter:check",
+        ":exercises:08-virtual-threads-downstream-bulkhead:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyExercise09") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 09."
+    dependsOn(
+        ":exercises:09-completable-future-task-lifetime:starter:check",
+        ":exercises:09-completable-future-task-lifetime:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyExercise10") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 10."
+    dependsOn(
+        ":exercises:10-async-request-context:starter:check",
+        ":exercises:10-async-request-context:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }
