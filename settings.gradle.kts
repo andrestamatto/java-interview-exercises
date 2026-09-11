@@ -38,4 +38,8 @@ include(
     ":exercises:10-async-request-context:solution",
     ":exercises:11-index-membership-lookups:starter",
     ":exercises:11-index-membership-lookups:solution",
+    ":exercises:12-trustworthy-jmh-benchmark:starter",
+    ":exercises:12-trustworthy-jmh-benchmark:solution",
+    ":exercises:13-reduce-event-parser-allocation:starter",
+    ":exercises:13-reduce-event-parser-allocation:solution",
 )

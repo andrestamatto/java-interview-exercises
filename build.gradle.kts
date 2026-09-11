@@ -173,6 +173,30 @@ tasks.register("verifyExercise11") {
     dependsOn(":exercises:11-index-membership-lookups:starter:check", ":exercises:11-index-membership-lookups:solution:check", "verifyStarterIsolation")
 }
 
+tasks.register("verifyExercise12") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 12."
+    dependsOn(":exercises:12-trustworthy-jmh-benchmark:starter:check", ":exercises:12-trustworthy-jmh-benchmark:solution:check", "verifyStarterIsolation")
+}
+
+tasks.register("verifyExercise13") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 13."
+    dependsOn(":exercises:13-reduce-event-parser-allocation:starter:check", ":exercises:13-reduce-event-parser-allocation:solution:check", "verifyStarterIsolation")
+}
+
+tasks.register("benchmarkExercise12") {
+    group = "verification"
+    description = "Runs the short JMH smoke benchmark for exercise 12."
+    dependsOn(":exercises:12-trustworthy-jmh-benchmark:solution:jmhSmoke")
+}
+
+tasks.register("benchmarkExercise13") {
+    group = "verification"
+    description = "Runs the short JMH GC-profiler smoke benchmark for exercise 13."
+    dependsOn(":exercises:13-reduce-event-parser-allocation:solution:jmhSmoke")
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }
