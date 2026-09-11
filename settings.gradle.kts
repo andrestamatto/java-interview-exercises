@@ -32,4 +32,6 @@ include(
     ":exercises:07-bounded-import-executor:solution",
     ":exercises:08-virtual-threads-downstream-bulkhead:starter",
     ":exercises:08-virtual-threads-downstream-bulkhead:solution",
+    ":exercises:09-completable-future-task-lifetime:starter",
+    ":exercises:09-completable-future-task-lifetime:solution",
 )
