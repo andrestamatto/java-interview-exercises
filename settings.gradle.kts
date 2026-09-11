@@ -36,4 +36,6 @@ include(
     ":exercises:09-completable-future-task-lifetime:solution",
     ":exercises:10-async-request-context:starter",
     ":exercises:10-async-request-context:solution",
+    ":exercises:11-index-membership-lookups:starter",
+    ":exercises:11-index-membership-lookups:solution",
 )
