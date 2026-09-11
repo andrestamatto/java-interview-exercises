@@ -107,6 +107,16 @@ tasks.register("verifyExercise04") {
     )
 }
 
+tasks.register("verifyExercise05") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 05."
+    dependsOn(
+        ":exercises:05-deadlock-free-account-transfer:starter:check",
+        ":exercises:05-deadlock-free-account-transfer:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }

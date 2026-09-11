@@ -24,4 +24,6 @@ include(
     ":exercises:03-atomic-quota-compound-operation:solution",
     ":exercises:04-immutable-snapshot-safe-publication:starter",
     ":exercises:04-immutable-snapshot-safe-publication:solution",
+    ":exercises:05-deadlock-free-account-transfer:starter",
+    ":exercises:05-deadlock-free-account-transfer:solution",
 )
