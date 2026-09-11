@@ -77,6 +77,36 @@ tasks.register("verifyExercise01") {
     )
 }
 
+tasks.register("verifyExercise02") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 02."
+    dependsOn(
+        ":exercises:02-volatile-shutdown-visibility:starter:check",
+        ":exercises:02-volatile-shutdown-visibility:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyExercise03") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 03."
+    dependsOn(
+        ":exercises:03-atomic-quota-compound-operation:starter:check",
+        ":exercises:03-atomic-quota-compound-operation:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyExercise04") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 04."
+    dependsOn(
+        ":exercises:04-immutable-snapshot-safe-publication:starter:check",
+        ":exercises:04-immutable-snapshot-safe-publication:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }

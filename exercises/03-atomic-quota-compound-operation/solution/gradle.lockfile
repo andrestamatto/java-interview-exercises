@@ -1,7 +1,7 @@
 # This is a Gradle generated file for dependency locking.
 # Manual edits can break the build and are not advised.
 # This file is expected to be part of source control.
-# To regenerate this file, run: ./gradlew :exercises:01-lost-update-stock-reservation:starter:dependencies --write-locks
+# To regenerate this file, run: ./gradlew :exercises:03-atomic-quota-compound-operation:solution:dependencies --write-locks
 com.google.code.findbugs:jsr305:3.0.2=checkstyle
 com.google.errorprone:error_prone_annotations:2.36.0=checkstyle
 com.google.guava:failureaccess:1.0.3=checkstyle
@@ -50,4 +50,4 @@ org.junit:junit-bom:5.14.1=testCompileClasspath,testRuntimeClasspath
 org.opentest4j:opentest4j:1.3.0=testCompileClasspath,testRuntimeClasspath
 org.reflections:reflections:0.10.2=checkstyle
 org.xmlresolver:xmlresolver:5.3.3=checkstyle
-empty=annotationProcessor,compileClasspath,runtimeClasspath,testAnnotationProcessor
+empty=annotationProcessor,compileClasspath,testAnnotationProcessor
