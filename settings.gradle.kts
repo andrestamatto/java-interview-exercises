@@ -22,4 +22,6 @@ include(
     ":exercises:02-volatile-shutdown-visibility:solution",
     ":exercises:03-atomic-quota-compound-operation:starter",
     ":exercises:03-atomic-quota-compound-operation:solution",
+    ":exercises:04-immutable-snapshot-safe-publication:starter",
+    ":exercises:04-immutable-snapshot-safe-publication:solution",
 )

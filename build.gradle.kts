@@ -97,6 +97,16 @@ tasks.register("verifyExercise03") {
     )
 }
 
+tasks.register("verifyExercise04") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 04."
+    dependsOn(
+        ":exercises:04-immutable-snapshot-safe-publication:starter:check",
+        ":exercises:04-immutable-snapshot-safe-publication:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
 tasks.named("check") {
     dependsOn("formatCheck", "compileStarters", "verifySolutions", "verifyStarterIsolation")
 }
