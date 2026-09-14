@@ -12,8 +12,8 @@ Balances stop moving, workers are retained, and queued requests accumulate.
 
 ## Learning objectives and prerequisites
 
-Build a total lock order, distinguish safety from liveness, and diagnose a
-real lock cycle. Complete exercise 01 first.
+Build a total lock order, distinguish safety from liveness, and understand what
+JVM diagnostics reveal after a real lock cycle. Complete exercise 01 first.
 
 ## Underlying cause
 
@@ -64,10 +64,16 @@ request B -> lock lower account ID -> lock higher account ID -> transfer -> unlo
 
 ## Deterministic failure reproduction
 
-The acceptance probe pauses each transfer after its first lock. The starter
-holds one distinct account per thread; releasing the probe produces a cycle
-that `ThreadMXBean.findDeadlockedThreads()` reports. The solution admits only
-one transfer through the first ordered lock, so no cycle is possible.
+The acceptance probe pauses a transfer after its first lock. The starter lets
+both opposing transfers reach that point while holding different accounts, which
+is the exact precondition for circular wait. The test fails as soon as it
+observes both conflicting first locks, then releases work for clean shutdown.
+With a total account-ID order, both transfers require the same first lock, so
+only one reaches the probe before release and circular wait cannot form.
+
+This is a deterministic prevention gate. It does not form a deadlock and poll
+`ThreadMXBean`; thread dumps, JFR, and `ThreadMXBean` remain manual diagnostic
+extensions.
 
 ## Task and automated acceptance criteria
 

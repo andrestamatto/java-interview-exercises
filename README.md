@@ -12,7 +12,9 @@ complete. The next batches build the remaining exercises from this reviewed
 foundation.
 
 The baseline is Java 21 on Eclipse Temurin. Java 25 extensions will remain
-isolated, and Spring Boot 4.1.x is the default for framework-oriented exercises.
+isolated, and Spring Boot 4.0.8 is the pinned default for framework-oriented
+exercises. A newer Spring line is adopted only after an intentional compatibility
+review.
 
 ```shell
 ./gradlew formatCheck compileStarters verifySolutions verifyStarterIsolation
@@ -27,6 +29,9 @@ Phase 1 design artifacts:
 - [`docs/exercise-template.md`](docs/exercise-template.md)
 - [`docs/architecture.md`](docs/architecture.md)
 - [`docs/progress.md`](docs/progress.md)
+- [`docs/prerequisites.md`](docs/prerequisites.md)
+- [`docs/troubleshooting.md`](docs/troubleshooting.md)
+- [`docs/linkedin-series-guide.md`](docs/linkedin-series-guide.md)
 
 The project is licensed under the Apache License 2.0. Copyright 2026 André
 Stamatto.

@@ -18,9 +18,9 @@
   `benchmarkExerciseNN`, `integrationTest`, `dependencyUpdates`, and explicit
   starter acceptance tasks.
 
-Spring Boot 4.1.x is the approved default because the current release supports
-Java 21 and 25. Exact Spring Cloud and plugin versions are pinned only after
-checking their official compatibility matrices during Phase 2.
+Spring Boot 4.0.8 is the pinned stable default and supports the Java baseline.
+Exact Spring Cloud and plugin versions are pinned only after checking their
+official compatibility matrices during Phase 2.
 
 ## Validation lanes
 

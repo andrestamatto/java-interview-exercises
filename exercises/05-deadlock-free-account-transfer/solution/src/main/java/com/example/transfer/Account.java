@@ -45,4 +45,8 @@ public final class Account {
   boolean canDebit(long amount) {
     return balance >= amount;
   }
+
+  boolean canCredit(long amount) {
+    return balance <= Long.MAX_VALUE - amount;
+  }
 }

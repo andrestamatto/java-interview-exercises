@@ -20,6 +20,21 @@ tasks.register("compileStarters") {
     dependsOn(subprojects.filter { it.name == "starter" }.map { "${it.path}:check" })
 }
 
+tasks.register("integrationTest") {
+    group = "verification"
+    description = "Runs explicit infrastructure integration tests for modules that provide them."
+}
+
+gradle.projectsEvaluated {
+    tasks.named("integrationTest") {
+        dependsOn(
+            subprojects
+                .filter { it.tasks.names.contains("integrationTest") }
+                .map { "${it.path}:integrationTest" },
+        )
+    }
+}
+
 tasks.register("formatCheck") {
     group = "verification"
     description = "Checks formatting in every implemented Java module."
@@ -191,10 +206,118 @@ tasks.register("benchmarkExercise12") {
     dependsOn(":exercises:12-trustworthy-jmh-benchmark:solution:jmhSmoke")
 }
 
+tasks.register("benchmarkExercise06") {
+    group = "verification"
+    description = "Runs the short JMH GC-profiler smoke benchmark for exercise 06."
+    dependsOn(":exercises:06-reduce-receipt-lock-contention:solution:jmhSmoke")
+}
+
 tasks.register("benchmarkExercise13") {
     group = "verification"
     description = "Runs the short JMH GC-profiler smoke benchmark for exercise 13."
     dependsOn(":exercises:13-reduce-event-parser-allocation:solution:jmhSmoke")
+}
+
+tasks.register("benchmarkExercise14") {
+    group = "verification"
+    description = "Runs the short JMH GC-profiler smoke benchmark for exercise 14."
+    dependsOn(":exercises:14-primitive-metric-window:solution:jmhSmoke")
+}
+
+tasks.register("benchmarkExercise15") {
+    group = "verification"
+    description = "Runs the short JMH GC-profiler smoke benchmark for exercise 15."
+    dependsOn(":exercises:15-deadline-ordered-job-collection:solution:jmhSmoke")
+}
+
+tasks.register("verifyExercise14") {
+    group = "verification"
+    dependsOn(":exercises:14-primitive-metric-window:starter:check", ":exercises:14-primitive-metric-window:solution:check", "verifyStarterIsolation")
+}
+
+tasks.register("verifyExercise15") {
+    group = "verification"
+    dependsOn(":exercises:15-deadline-ordered-job-collection:starter:check", ":exercises:15-deadline-ordered-job-collection:solution:check", "verifyStarterIsolation")
+}
+
+tasks.register("verifyExercise16") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 16."
+    dependsOn(
+        ":exercises:16-jpa-order-summary-n-plus-one:starter:check",
+        ":exercises:16-jpa-order-summary-n-plus-one:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyIntegrationExercise16") {
+    group = "verification"
+    description = "Runs the PostgreSQL integration test for exercise 16."
+    dependsOn(":exercises:16-jpa-order-summary-n-plus-one:solution:integrationTest")
+}
+
+tasks.register("verifyExercise17") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 17."
+    dependsOn(
+        ":exercises:17-sargable-sql-date-range:starter:check",
+        ":exercises:17-sargable-sql-date-range:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyIntegrationExercise17") {
+    group = "verification"
+    description = "Runs the PostgreSQL integration test for exercise 17."
+    dependsOn(":exercises:17-sargable-sql-date-range:solution:integrationTest")
+}
+
+tasks.register("verifyExercise18") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 18."
+    dependsOn(
+        ":exercises:18-keyset-pagination-stable-traversal:starter:check",
+        ":exercises:18-keyset-pagination-stable-traversal:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyIntegrationExercise18") {
+    group = "verification"
+    description = "Runs the PostgreSQL integration test for exercise 18."
+    dependsOn(":exercises:18-keyset-pagination-stable-traversal:solution:integrationTest")
+}
+
+tasks.register("verifyExercise19") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 19."
+    dependsOn(
+        ":exercises:19-dynamodb-batch-read-round-trips:starter:check",
+        ":exercises:19-dynamodb-batch-read-round-trips:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyIntegrationExercise19") {
+    group = "verification"
+    description = "Runs the DynamoDB Local integration test for exercise 19."
+    dependsOn(":exercises:19-dynamodb-batch-read-round-trips:solution:integrationTest")
+}
+
+tasks.register("verifyExercise20") {
+    group = "verification"
+    description = "Compiles the starter and verifies the reference solution for exercise 20."
+    dependsOn(
+        ":exercises:20-database-pool-admission-control:starter:check",
+        ":exercises:20-database-pool-admission-control:solution:check",
+        "verifyStarterIsolation",
+    )
+}
+
+tasks.register("verifyIntegrationExercise20") {
+    group = "verification"
+    description = "Runs the PostgreSQL and Hikari integration test for exercise 20."
+    dependsOn(":exercises:20-database-pool-admission-control:solution:integrationTest")
 }
 
 tasks.named("check") {
