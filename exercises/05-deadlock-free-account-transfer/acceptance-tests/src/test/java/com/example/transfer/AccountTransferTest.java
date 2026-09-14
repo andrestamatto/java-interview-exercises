@@ -27,4 +27,16 @@ class AccountTransferTest {
     assertThatIllegalArgumentException().isThrownBy(
         () -> service.transfer(account, new Account("other", 0), 0));
   }
+
+  @Test
+  void rejectsATransferThatWouldOverflowTheDestinationBalance() throws Exception {
+    Account source = new Account("source", 1);
+    Account destination = new Account("destination", Long.MAX_VALUE);
+
+    boolean transferred = new AccountTransferService().transfer(source, destination, 1);
+
+    assertThat(transferred).isFalse();
+    assertThat(source.balance()).isEqualTo(1);
+    assertThat(destination.balance()).isEqualTo(Long.MAX_VALUE);
+  }
 }

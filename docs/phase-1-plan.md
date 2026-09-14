@@ -43,9 +43,10 @@ committed. Their local deletion is unnecessary for repository cleanliness.
    separately enabled LocalStack profile for learners who provide a token. The
    suite therefore requires accurate AWS-compatible local integration, not a
    credentialed LocalStack dependency.
-2. **Spring generation:** use Spring Boot 4.1.x/Spring Framework 7 for new code,
-   while documenting Boot 3/OpenFeign migration concerns. Verify Spring Cloud's
-   compatibility matrix before pinning its release train.
+2. **Spring generation:** Spring Boot 4.0.8/Spring Framework 7 is the pinned
+stable baseline for new code. Recheck the official compatibility matrix before
+moving to a newer Spring line or pinning a Spring Cloud release train; document
+Boot 3/OpenFeign migration concerns separately.
 3. **Build runtime:** use the latest stable Gradle 9.x release verified with both
    Java 21 and 25. The current compatibility matrix requires Gradle 9.1+ to run
    on Java 25. Use toolchains and `--release`, not only source compatibility.

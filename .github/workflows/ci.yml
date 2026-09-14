@@ -25,7 +25,7 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@4c125117fe7c5aed11272ec4213f602f012f89f2 # v5
       - name: Verify the fast feedback lane
-        run: ./gradlew formatCheck compileStarters verifySolutions verifyStarterIsolation
+        run: ./gradlew formatCheck compileStarters verifySolutions verifyStarterIsolation benchmarkExercise06 benchmarkExercise12 benchmarkExercise13 benchmarkExercise14 benchmarkExercise15
 
   java-25-wrapper:
     runs-on: ubuntu-latest
@@ -37,5 +37,5 @@ jobs:
         with:
           distribution: temurin
           java-version: "25"
-      - name: Validate Java 25 can run the Wrapper
-        run: ./gradlew --no-daemon --version
+      - name: Validate Java 25 can run the formatting lane
+        run: ./gradlew --no-daemon formatCheck

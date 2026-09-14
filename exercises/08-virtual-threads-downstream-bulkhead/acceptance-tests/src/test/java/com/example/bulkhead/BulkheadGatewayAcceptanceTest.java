@@ -1,6 +1,8 @@
 package com.example.bulkhead;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ import org.junit.jupiter.api.Test;
 @Tag("acceptance")
 class BulkheadGatewayAcceptanceTest {
   @Test
-  void virtualThreadsDoNotExceedTheDownstreamConcurrencyBudget() throws Exception {
+  void virtualThreadsDoNotExceedTheDownstreamConcurrencyBudgetAndReleasePermits() throws Exception {
     CountDownLatch entered = new CountDownLatch(2);
     CountDownLatch release = new CountDownLatch(1);
     AtomicInteger inFlight = new AtomicInteger();
@@ -39,14 +41,42 @@ class BulkheadGatewayAcceptanceTest {
         futures.add(callers.submit(() -> gateway.fetch("request")));
       }
       assertThat(entered.await(1, TimeUnit.SECONDS)).isTrue();
-      assertThat(maximumObserved.get()).isLessThanOrEqualTo(2);
+      assertThat(maximumObserved.get()).isEqualTo(2);
+      release.countDown();
       for (java.util.concurrent.Future<String> future : futures) {
-        release.countDown();
-        assertThat(future.get()).isEqualTo("request");
+        assertThat(future.get(1, TimeUnit.SECONDS)).isEqualTo("request");
       }
+      assertThat(maximumObserved.get()).isLessThanOrEqualTo(2);
     } finally {
       release.countDown();
       callers.close();
     }
+  }
+
+  @Test
+  void rejectsANonPositiveDownstreamBudget() {
+    DownstreamClient downstream = request -> request;
+
+    assertThatIllegalArgumentException()
+        .isThrownBy(() -> new BulkheadGateway(downstream, 0))
+        .withMessage("maximumInFlight must be positive");
+  }
+
+  @Test
+  void releasesAPermitWhenTheDownstreamCallFails() throws Exception {
+    AtomicInteger calls = new AtomicInteger();
+    DownstreamClient downstream =
+        request -> {
+          if (calls.incrementAndGet() == 1) {
+            throw new IllegalStateException("dependency failed");
+          }
+          return request;
+        };
+    BulkheadGateway gateway = new BulkheadGateway(downstream, 1);
+
+    assertThatThrownBy(() -> gateway.fetch("first"))
+        .isInstanceOf(IllegalStateException.class)
+        .hasMessage("dependency failed");
+    assertThat(gateway.fetch("second")).isEqualTo("second");
   }
 }

@@ -23,4 +23,13 @@ tasks.register<JavaExec>("jmh") {
     args("-rf", "json", "-rff", layout.buildDirectory.file("reports/jmh/results.json").get().asFile.path)
 }
 
+tasks.register<JavaExec>("jmhSmoke") {
+    group = "verification"
+    description = "Runs a short JMH smoke benchmark without score assertions."
+    dependsOn(jmh.classesTaskName)
+    classpath = jmh.runtimeClasspath
+    mainClass = "org.openjdk.jmh.Main"
+    args("-wi", "1", "-i", "1", "-f", "1", "-w", "100ms", "-r", "100ms", "-prof", "gc")
+}
+
 sourceSets.test { java.srcDir("../acceptance-tests/src/test/java") }

@@ -4,6 +4,9 @@ jqwik = "1.9.3"
 assertj = "3.27.7"
 jcstress = "0.16"
 jmh = "1.37"
+springBoot = "4.0.8"
+testcontainers = "2.0.5"
+awsSdk = "2.54.17"
 
 [libraries]
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
@@ -13,6 +16,13 @@ assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 jcstress = { module = "org.openjdk.jcstress:jcstress-core", version.ref = "jcstress" }
 jmh-core = { module = "org.openjdk.jmh:jmh-core", version.ref = "jmh" }
 jmh-generator = { module = "org.openjdk.jmh:jmh-generator-annprocess", version.ref = "jmh" }
+spring-boot-dependencies = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:testcontainers-junit-jupiter", version.ref = "testcontainers" }
+testcontainers-postgresql = { module = "org.testcontainers:testcontainers-postgresql", version.ref = "testcontainers" }
+testcontainers-core = { module = "org.testcontainers:testcontainers", version.ref = "testcontainers" }
+aws-sdk-bom = { module = "software.amazon.awssdk:bom", version.ref = "awsSdk" }
+aws-sdk-dynamodb = { module = "software.amazon.awssdk:dynamodb" }
+aws-sdk-url-connection-client = { module = "software.amazon.awssdk:url-connection-client" }
 
 [plugins]
 dependencyLicense = { id = "com.github.jk1.dependency-license-report", version = "3.1.4" }

@@ -2,10 +2,14 @@ package com.example.parser;
 
 public final class EventParser {
   public Event parse(String input) {
-    return parse(input, new ParserAllocationProbe());
+    return parseFields(input);
   }
 
   Event parse(String input, ParserAllocationProbe probe) {
+    return parseFields(input);
+  }
+
+  private static Event parseFields(String input) {
     if (input == null) {
       throw new IllegalArgumentException("input must not be null");
     }

@@ -9,6 +9,9 @@ public final class BulkheadGateway {
 
   public BulkheadGateway(DownstreamClient downstream, int maximumInFlight) {
     this.downstream = Objects.requireNonNull(downstream);
+    if (maximumInFlight <= 0) {
+      throw new IllegalArgumentException("maximumInFlight must be positive");
+    }
     this.permits = new Semaphore(maximumInFlight);
   }
 

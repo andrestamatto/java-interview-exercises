@@ -19,7 +19,7 @@ public final class AccountTransferService {
       observer.afterFirstLock();
       second.lock().lockInterruptibly();
       try {
-        if (!source.canDebit(amount)) {
+        if (!source.canDebit(amount) || !destination.canCredit(amount)) {
           return false;
         }
         source.debit(amount);
