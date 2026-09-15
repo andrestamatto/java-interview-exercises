@@ -1,36 +1,42 @@
 package com.example.stock;
 
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public final class ReservableStock {
-  private int remainingUnits;
+  private final AtomicInteger remainingUnits;
   private final ReservationProbe probe;
 
-  public ReservableStock(int initialUnits) {
+  public ReservableStock(final int initialUnits) {
     this(initialUnits, ReservationProbe.NO_OP);
   }
 
-  ReservableStock(int initialUnits, ReservationProbe probe) {
+  ReservableStock(final int initialUnits, ReservationProbe probe) {
     if (initialUnits < 0) {
       throw new IllegalArgumentException("initialUnits must not be negative");
     }
-    this.remainingUnits = initialUnits;
+    this.remainingUnits = new AtomicInteger(initialUnits);
     this.probe = Objects.requireNonNull(probe, "probe");
   }
 
   public ReservationOutcome reserve(int requestedUnits) {
     requirePositive(requestedUnits);
-    int observedUnits = remainingUnits;
+    int observedUnits = remainingUnits.get();
     probe.afterAvailabilityObserved(observedUnits);
-    if (requestedUnits > observedUnits) {
-      return ReservationOutcome.INSUFFICIENT_STOCK;
+
+    while (requestedUnits <= observedUnits) {
+      int updatedUnits = observedUnits - requestedUnits;
+      if (remainingUnits.compareAndSet(observedUnits, updatedUnits)) {
+        return ReservationOutcome.RESERVED;
+      }
+      observedUnits = remainingUnits.get();
     }
-    remainingUnits = observedUnits - requestedUnits;
-    return ReservationOutcome.RESERVED;
+
+    return ReservationOutcome.INSUFFICIENT_STOCK;
   }
 
   public int remainingUnits() {
-    return remainingUnits;
+    return remainingUnits.get();
   }
 
   private static void requirePositive(int requestedUnits) {
