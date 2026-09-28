@@ -22,11 +22,13 @@ public final class RequestQuota {
   public boolean tryAcquire() {
     int observedPermits = availablePermits.get();
     probe.afterAvailabilityObserved(observedPermits);
-    if (observedPermits == 0) {
-      return false;
+    while (observedPermits > 0) {
+      if (availablePermits.compareAndSet(observedPermits, observedPermits - 1)) {
+        return true;
+      }
+      observedPermits = availablePermits.get();
     }
-    availablePermits.decrementAndGet();
-    return true;
+    return false;
   }
 
   public int availablePermits() {
