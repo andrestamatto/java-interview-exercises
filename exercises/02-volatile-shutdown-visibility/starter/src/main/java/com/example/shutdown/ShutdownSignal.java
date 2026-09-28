@@ -1,7 +1,7 @@
 package com.example.shutdown;
 
 public final class ShutdownSignal {
-  private boolean stopRequested;
+  private volatile boolean stopRequested;
 
   public void requestStop() {
     stopRequested = true;
